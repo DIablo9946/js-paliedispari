@@ -10,7 +10,7 @@
 // Stabilisco le variabili
 
 var stampa, num, casuale, dispar, sumOfGame, controllo;
-controllo = true;
+
 stampa = document.getElementById('my');
 
 // Faccio inserire all'utente la scelta fra
@@ -18,6 +18,12 @@ stampa = document.getElementById('my');
 
 dispar = prompt("Scegli fra pari o dispari");
 num = parseInt(prompt("Scegli un numero da 1 a 5"));
+
+while (isNaN(num)) {
+  num = parseInt(prompt("Devi inserire un numero e non una lettera"));
+}
+
+
 casuale = Math.floor(Math.random() * 5) + 1;
 
 sumOfGame = num + casuale;
@@ -26,20 +32,15 @@ console.log(dispar);
 console.log(num);
 console.log(casuale);
 
+
+
 // Faccio dei controlli a proposito del numero
 
-// if (sumOfGame % 2 == 0) {
-//   console.log("Pari");
-// } else {
-//   console.log("Dispari")
-// }
 
-// Stabilisco il vincitore del gioco
-
-while (sumOfGame % 2 == 0) {
-  if (dispar == "Pari") {
+  if (dispar == "Pari" && sumOfGame % 2 == 0) {
+    console.log("Ha vinto il giocatore");
+  } else if (dispar == "Dispari" && sumOfGame % 2 !== 0) {
     console.log("Ha vinto il giocatore");
   } else {
     console.log("Ha vinto il computer");
   }
-}
